@@ -1,4 +1,6 @@
+import 'package:appshop/models/CategoryBar_model.dart';
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 part 'shop_event.dart';
@@ -25,7 +27,10 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
         emit(ShopErrorState(e.toString()));
       }
       */
-      emit(ShopFinishState("hello"));
+      //emit(ShopFinishState("hello"));
+    });
+    on<initFirstpageEvent>((event, emit) {
+      emit(ShopFinishState());
     });
   }
 }
