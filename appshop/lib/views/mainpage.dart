@@ -1,9 +1,11 @@
 import 'package:appshop/bloc/shop_bloc.dart';
+import 'package:appshop/models/CategoryBar_model.dart';
 import 'package:appshop/views/widget/CategoryBar.dart';
 import 'package:appshop/views/widget/CustomAppbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'widget/CustomCarousel.dart';
 
@@ -13,6 +15,29 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<ShopBloc>(context).add(initFirstpageEvent());
+
+    List<CategoryBarModel> mylistdummy = [
+      CategoryBarModel(
+        topic: "Shirt",
+        icon: FontAwesomeIcons.shirt,
+        iconcolor: Colors.black,
+      ),
+      CategoryBarModel(
+        topic: "Ticket",
+        icon: FontAwesomeIcons.ticket,
+        iconcolor: Colors.black,
+      ),
+      CategoryBarModel(
+        topic: "Book",
+        icon: FontAwesomeIcons.book,
+        iconcolor: Colors.black,
+      ),
+      CategoryBarModel(
+        topic: "Car",
+        icon: FontAwesomeIcons.car,
+        iconcolor: Colors.black,
+      ),
+    ];
 
     return BlocBuilder<ShopBloc, ShopState>(
       builder: (context, state) {
@@ -40,7 +65,7 @@ class MainPage extends StatelessWidget {
                 ),
                 _buildblank(d: 10.0),
                 //CategoryBar(mylist: state.)
-                CategoryBar(mylist: state.mylist)
+                CategoryBar(mylist: mylistdummy)
               ],
             ),
           );

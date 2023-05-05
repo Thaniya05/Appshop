@@ -37,10 +37,10 @@ class CategoryBar extends StatelessWidget {
         RawMaterialButton(
           onPressed: null,
           elevation: 5.0,
-          fillColor: Colors.white,
+          fillColor: Color.fromARGB(255, 141, 123, 123),
           child: FaIcon(
-            FontAwesomeIcons.shirt,
-            color: Colors.blueAccent,
+            icon,
+            color: iconcolor,
             size: 35,
           ),
           padding: EdgeInsets.all(15.0),
@@ -48,7 +48,7 @@ class CategoryBar extends StatelessWidget {
         ),
         _buildblank(d: 4.0),
         Text(
-          "Shirt",
+          topic,
           style: GoogleFonts.sarabun(
             fontSize: 14,
             fontWeight: FontWeight.w300,
