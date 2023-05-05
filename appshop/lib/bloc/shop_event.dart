@@ -8,3 +8,5 @@ class SearchEvent extends ShopEvent {
 
   SearchEvent(this.SearchText);
 }
+
+class initFirstpageEvent extends ShopEvent {}

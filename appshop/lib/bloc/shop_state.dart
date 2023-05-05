@@ -1,8 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'shop_bloc.dart';
 
-@immutable
-abstract class ShopState {
-  List<String> get _smt => [];
+class ShopState extends Equatable {
+  ShopState({
+    this.categoryItems = const <CategoryBarModel>[],
+  });
+  final List<CategoryBarModel> categoryItems;
+
+  ShopState copyWith({List<CategoryBarModel>? categoryItems}) {
+    return ShopState(
+      categoryItems: categoryItems ?? this.categoryItems,
+    );
+  }
+
+  @override
+  List<Object> get props => [categoryItems];
 }
 
 class ShopInitial extends ShopState {}
@@ -10,13 +22,12 @@ class ShopInitial extends ShopState {}
 class ShopLoading extends ShopState {}
 
 class ShopFinishState extends ShopState {
-  final String smt;
+  //final String smt;
+  // late List<CategoryBarModel> mylist;
 
-  ShopFinishState(this.smt);
+  //ShopFinishState();
 
-/*
-  @override
-  List<String> get _smt => smt;*/
+  List<CategoryBarModel> get mylist => categoryItems;
 }
 
 class ShopErrorState extends ShopState {
