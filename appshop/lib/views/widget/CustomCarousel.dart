@@ -7,11 +7,12 @@ class CustomCarousel extends StatefulWidget {
   final double mywidth;
   final List<String> myurl;
 
-  const CustomCarousel(
-      {super.key,
-      required this.myheight,
-      required this.mywidth,
-      required this.myurl});
+  const CustomCarousel({
+    super.key,
+    required this.myheight,
+    required this.mywidth,
+    required this.myurl,
+  });
   @override
   State<StatefulWidget> createState() {
     return _CustomCarousel();

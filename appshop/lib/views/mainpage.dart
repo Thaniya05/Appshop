@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ShopBloc>(context).add(initFirstpageEvent());
+    //BlocProvider.of<ShopBloc>(context).add();
 
     List<CategoryBarModel> mylistdummy = [
       CategoryBarModel(
@@ -39,40 +39,28 @@ class MainPage extends StatelessWidget {
       ),
     ];
 
-    return BlocBuilder<ShopBloc, ShopState>(
-      builder: (context, state) {
-        if (state is ShopLoading || state is ShopInitial) {
-          return Container(
-            width: 100,
-            height: 100,
-            child: CircularProgressIndicator(),
-          );
-        }
-        if (state is ShopFinishState) {
-          return Scaffold(
-            body: Column(
-              children: [
-                AppbarwithSearch(),
-                _buildblank(d: 10.0),
-                //CarouselWithIndicatorDemo(),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  child: CustomCarousel(
-                    myheight: 0,
-                    mywidth: 0,
-                    myurl: [],
-                  ),
-                ),
-                _buildblank(d: 10.0),
-                //CategoryBar(mylist: state.)
-                CategoryBar(mylist: mylistdummy)
-              ],
+    return BlocBuilder<ShopBloc, ShopState>(builder: (context, state) {
+      return Scaffold(
+        body: Column(
+          children: [
+            AppbarwithSearch(),
+            _buildblank(d: 10.0),
+            //CarouselWithIndicatorDemo(),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: CustomCarousel(
+                myheight: 0,
+                mywidth: 0,
+                myurl: [],
+              ),
             ),
-          );
-        }
-        return Scaffold();
-      },
-    );
+            _buildblank(d: 10.0),
+            //CategoryBar(mylist: state.)
+            CategoryBar(mylist: mylistdummy)
+          ],
+        ),
+      );
+    });
   }
 
   Padding _buildblank({double d = 20.0}) => Padding(padding: EdgeInsets.all(d));

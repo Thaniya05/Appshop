@@ -1,12 +1,9 @@
 part of 'shop_bloc.dart';
 
-@immutable
-abstract class ShopEvent {}
-
-class SearchEvent extends ShopEvent {
-  final String SearchText;
-
-  SearchEvent(this.SearchText);
+class ShopEvent extends Equatable {
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
 }
 
-class initFirstpageEvent extends ShopEvent {}
+class GetDummyCategory extends ShopEvent {}

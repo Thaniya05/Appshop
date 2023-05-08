@@ -1,37 +1,33 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'shop_bloc.dart';
 
-class ShopState extends Equatable {
-  ShopState({
-    this.categoryItems = const <CategoryBarModel>[],
-  });
-  final List<CategoryBarModel> categoryItems;
+enum ShopStatus { initial, success, error, loading }
 
-  ShopState copyWith({List<CategoryBarModel>? categoryItems}) {
-    return ShopState(
-      categoryItems: categoryItems ?? this.categoryItems,
-    );
-  }
+extension ShopStatusX on ShopStatus {
+  bool get isInitial => this == ShopStatus.initial;
+  bool get isSuccess => this == ShopStatus.success;
+  bool get isError => this == ShopStatus.error;
+  bool get isLoading => this == ShopStatus.loading;
+}
+
+class ShopState extends Equatable {
+  final ShopStatus status;
+  final List<CategoryModel> listCategory;
+  const ShopState({
+    this.status = ShopStatus.initial,
+    List<CategoryModel>? listCategory,
+  }) : listCategory = listCategory ?? const [];
 
   @override
-  List<Object> get props => [categoryItems];
-}
+  List<Object> get props => [status, listCategory];
 
-class ShopInitial extends ShopState {}
-
-class ShopLoading extends ShopState {}
-
-class ShopFinishState extends ShopState {
-  //final String smt;
-  // late List<CategoryBarModel> mylist;
-
-  //ShopFinishState();
-
-  List<CategoryBarModel> get mylist => categoryItems;
-}
-
-class ShopErrorState extends ShopState {
-  final String errorMessage;
-
-  ShopErrorState(this.errorMessage);
+  ShopState copyWith({
+    ShopStatus? status,
+    List<CategoryModel>? listCategory,
+  }) {
+    return ShopState(
+      status: status ?? this.status,
+      listCategory: listCategory ?? this.listCategory,
+    );
+  }
 }
