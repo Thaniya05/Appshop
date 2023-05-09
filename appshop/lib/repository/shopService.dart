@@ -6,6 +6,7 @@ class ShopService {
     return [
       CategoryModel(name: "Hello", src: Icons.abc),
       CategoryModel(name: "Goodbye", src: Icons.ac_unit_sharp),
+      CategoryModel(name: "Birthdat", src: Icons.access_alarms),
     ];
   }
 }

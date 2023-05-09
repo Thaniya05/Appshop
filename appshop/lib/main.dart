@@ -1,6 +1,6 @@
 import 'package:appshop/repository/shopRepository.dart';
 import 'package:appshop/repository/shopService.dart';
-import 'package:appshop/views/mainpage.dart';
+import 'package:appshop/views/pages/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               ShopBloc(shopRepository: context.read<ShopRepository>())
                 ..add(GetDummyCategory()),
-          child: MainPage(),
+          child: HomePage(),
         ),
       ),
     );

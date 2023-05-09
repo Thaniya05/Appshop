@@ -1,43 +1,20 @@
-import 'package:appshop/bloc/shop_bloc.dart';
-import 'package:appshop/models/CategoryBar_model.dart';
-import 'package:appshop/views/widget/CategoryBar.dart';
-import 'package:appshop/views/widget/CustomAppbar.dart';
+import 'package:appshop/views/widget/CategoryBar_widget/CategoryBar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'widget/CustomCarousel.dart';
+import 'package:appshop/bloc/shop_bloc.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+import 'package:appshop/views/widget/AppbarSearch_widget/CustomAppbar.dart';
+import 'package:appshop/views/widget/Carousel_widget/CustomCarousel.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     //BlocProvider.of<ShopBloc>(context).add();
-
-    List<CategoryBarModel> mylistdummy = [
-      CategoryBarModel(
-        topic: "Shirt",
-        icon: FontAwesomeIcons.shirt,
-        iconcolor: Colors.black,
-      ),
-      CategoryBarModel(
-        topic: "Ticket",
-        icon: FontAwesomeIcons.ticket,
-        iconcolor: Colors.black,
-      ),
-      CategoryBarModel(
-        topic: "Book",
-        icon: FontAwesomeIcons.book,
-        iconcolor: Colors.black,
-      ),
-      CategoryBarModel(
-        topic: "Car",
-        icon: FontAwesomeIcons.car,
-        iconcolor: Colors.black,
-      ),
-    ];
 
     return BlocBuilder<ShopBloc, ShopState>(builder: (context, state) {
       return Scaffold(
@@ -56,7 +33,7 @@ class MainPage extends StatelessWidget {
             ),
             _buildblank(d: 10.0),
             //CategoryBar(mylist: state.)
-            CategoryBar(mylist: mylistdummy)
+            CategoryBar(),
           ],
         ),
       );

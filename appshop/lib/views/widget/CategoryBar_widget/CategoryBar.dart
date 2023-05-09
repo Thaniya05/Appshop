@@ -5,14 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:appshop/models/CategoryBar_model.dart';
-
 class CategoryBar extends StatelessWidget {
-  final List<CategoryBarModel> mylist;
-
   const CategoryBar({
     Key? key,
-    required this.mylist,
   }) : super(key: key);
 
   @override
@@ -33,15 +28,7 @@ class CategoryBar extends StatelessWidget {
           );
         } else {
           return Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: mylist
-                  .map(
-                    (c) => _buildItem(
-                        topic: c.topic, icon: c.icon, iconcolor: c.iconcolor),
-                  )
-                  .toList(),
-            ),
+            child: Container(),
           );
         }
       },

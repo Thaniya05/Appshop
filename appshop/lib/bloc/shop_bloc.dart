@@ -1,4 +1,3 @@
-import 'package:appshop/models/CategoryBar_model.dart';
 import 'package:appshop/repository/model/category.dart';
 import 'package:appshop/repository/shopRepository.dart';
 import 'package:bloc/bloc.dart';
@@ -22,10 +21,10 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
 
     try {
       final dummy = await shopRepository.getDummyCategory();
-      print(dummy);
+      //print(dummy);
       emit(state.copyWith(listCategory: dummy, status: ShopStatus.success));
     } catch (e) {
-      print(e);
+      //print(e);
       emit(state.copyWith(status: ShopStatus.error));
     }
   }
