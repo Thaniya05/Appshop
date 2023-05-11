@@ -1,10 +1,9 @@
 import 'package:appshop/repository/shopRepository.dart';
 import 'package:appshop/repository/shopService.dart';
 import 'package:appshop/views/pages/HomePage.dart';
+import 'package:appshop/views/widget/CategoryBar_widget/bloc/category_bar_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'bloc/shop_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         create: (context) => ShopRepository(service: ShopService()),
         child: BlocProvider(
           create: (context) =>
-              ShopBloc(shopRepository: context.read<ShopRepository>())
+              CategoryBarBloc(shopRepository: context.read<ShopRepository>())
                 ..add(GetDummyCategory()),
           child: HomePage(),
         ),

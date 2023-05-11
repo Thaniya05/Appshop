@@ -1,4 +1,5 @@
 import 'package:appshop/views/widget/CategoryBar_widget/CategoryBar.dart';
+import 'package:appshop/views/widget/Recommend_widget/recommend_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,28 +17,27 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     //BlocProvider.of<ShopBloc>(context).add();
 
-    return BlocBuilder<ShopBloc, ShopState>(builder: (context, state) {
-      return Scaffold(
-        body: Column(
-          children: [
-            AppbarwithSearch(),
-            _buildblank(d: 10.0),
-            //CarouselWithIndicatorDemo(),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: CustomCarousel(
-                myheight: 0,
-                mywidth: 0,
-                myurl: [],
-              ),
+    return Scaffold(
+      body: Column(
+        children: [
+          AppbarwithSearch(),
+          _buildblank(d: 10.0),
+          //CarouselWithIndicatorDemo(),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.9,
+            child: CustomCarousel(
+              myheight: 0,
+              mywidth: 0,
+              myurl: [],
             ),
-            _buildblank(d: 10.0),
-            //CategoryBar(mylist: state.)
-            CategoryBar(),
-          ],
-        ),
-      );
-    });
+          ),
+          _buildblank(d: 10.0),
+          //CategoryBar(mylist: state.)
+          CategoryBar(),
+          RecommendList(),
+        ],
+      ),
+    );
   }
 
   Padding _buildblank({double d = 20.0}) => Padding(padding: EdgeInsets.all(d));

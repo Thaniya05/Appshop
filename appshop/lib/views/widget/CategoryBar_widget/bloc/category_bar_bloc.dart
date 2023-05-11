@@ -1,3 +1,5 @@
+import 'package:appshop/repository/model/category_bar.dart';
+import 'package:appshop/repository/shopRepository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -5,9 +7,23 @@ part 'category_bar_event.dart';
 part 'category_bar_state.dart';
 
 class CategoryBarBloc extends Bloc<CategoryBarEvent, CategoryBarState> {
-  CategoryBarBloc() : super(CategoryBarInitial()) {
-    on<CategoryBarEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  CategoryBarBloc({required this.shopRepository}) : super(CategoryBarState()) {
+    on<GetDummyCategory>(_getDummyCategory);
+  }
+
+  final ShopRepository shopRepository;
+
+  void _getDummyCategory(
+      GetDummyCategory event, Emitter<CategoryBarState> emit) async {
+    emit(state.copyWith(status: CategoryBarStatus.loading));
+
+    try {
+      final dummy = await shopRepository.getDummyCategory();
+      //print(dummy);
+      emit(state.copyWith(listbar: dummy, status: CategoryBarStatus.success));
+    } catch (e) {
+      //print(e);
+      emit(state.copyWith(status: CategoryBarStatus.error));
+    }
   }
 }

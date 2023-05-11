@@ -1,12 +1,16 @@
 import 'package:appshop/repository/model/category.dart';
+import 'package:appshop/repository/model/category_bar.dart';
 import 'package:flutter/material.dart';
 
 class ShopService {
-  Future<List<CategoryModel>> getDummyCatagory() async {
+  Future<List<CategoryBarModel>> getDummyCatagory() async {
     return [
-      CategoryModel(name: "Hello", src: Icons.abc),
-      CategoryModel(name: "Goodbye", src: Icons.ac_unit_sharp),
-      CategoryModel(name: "Birthdat", src: Icons.access_alarms),
+      CategoryBarModel(
+          color: Colors.white, icon: Icons.abc_outlined, name: "Hello"),
+      CategoryBarModel(
+          color: Colors.white, icon: Icons.abc_outlined, name: "Goodbye"),
+      CategoryBarModel(
+          color: Colors.white, icon: Icons.abc_outlined, name: "Hello"),
     ];
   }
 }

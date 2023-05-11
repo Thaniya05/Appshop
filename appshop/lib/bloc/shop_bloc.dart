@@ -22,7 +22,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
     try {
       final dummy = await shopRepository.getDummyCategory();
       //print(dummy);
-      emit(state.copyWith(listCategory: dummy, status: ShopStatus.success));
+      //emit(state.copyWith(listCategory: dummy, status: ShopStatus.success));
     } catch (e) {
       //print(e);
       emit(state.copyWith(status: ShopStatus.error));

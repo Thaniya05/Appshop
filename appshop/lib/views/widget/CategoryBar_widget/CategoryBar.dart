@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:appshop/bloc/shop_bloc.dart';
+
+import 'package:appshop/repository/shopRepository.dart';
+import 'package:appshop/views/widget/CategoryBar_widget/bloc/category_bar_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,23 +14,25 @@ class CategoryBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ShopBloc, ShopState>(
+    return BlocBuilder<CategoryBarBloc, CategoryBarState>(
       builder: (context, state) {
         if (state.status.isSuccess) {
           return Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: state.listCategory
+              children: state.listbar
                   .map(
                     (c) => _buildItem(
-                        topic: c.name, icon: c.src, iconcolor: Colors.white),
+                        topic: c.name, icon: c.icon, iconcolor: c.color),
                   )
                   .toList(),
             ),
           );
         } else {
           return Container(
-            child: Container(),
+            child: Container(
+              child: Text('error'),
+            ),
           );
         }
       },
