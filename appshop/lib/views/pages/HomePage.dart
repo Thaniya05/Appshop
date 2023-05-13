@@ -1,4 +1,5 @@
 import 'package:appshop/views/widget/CategoryBar_widget/CategoryBar.dart';
+import 'package:appshop/views/widget/Hotdeal_widget/Hotdeal.dart';
 import 'package:appshop/views/widget/Recommend_widget/recommend_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -18,24 +19,27 @@ class HomePage extends StatelessWidget {
     //BlocProvider.of<ShopBloc>(context).add();
 
     return Scaffold(
-      body: Column(
-        children: [
-          AppbarwithSearch(),
-          _buildblank(d: 10.0),
-          //CarouselWithIndicatorDemo(),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.9,
-            child: CustomCarousel(
-              myheight: 0,
-              mywidth: 0,
-              myurl: [],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            AppbarwithSearch(),
+            _buildblank(d: 10.0),
+            //CarouselWithIndicatorDemo(),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: CustomCarousel(
+                myheight: 0,
+                mywidth: 0,
+                myurl: [],
+              ),
             ),
-          ),
-          _buildblank(d: 10.0),
-          //CategoryBar(mylist: state.)
-          CategoryBar(),
-          RecommendList(),
-        ],
+            _buildblank(d: 10.0),
+            //CategoryBar(mylist: state.)
+            CategoryBar(),
+            RecommendList(),
+            HotDeal(),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:appshop/repository/shopRepository.dart';
 import 'package:appshop/repository/shopService.dart';
 import 'package:appshop/views/pages/HomePage.dart';
+import 'package:appshop/views/pages/RecommendPage.dart';
 import 'package:appshop/views/widget/CategoryBar_widget/bloc/category_bar_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               CategoryBarBloc(shopRepository: context.read<ShopRepository>())
                 ..add(GetDummyCategory()),
-          child: HomePage(),
+          child: RecommendPage(),
         ),
       ),
     );
