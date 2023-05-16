@@ -1,14 +1,34 @@
-import 'package:appshop/repository/shopRepository.dart';
-import 'package:appshop/repository/shopService.dart';
-import 'package:appshop/views/pages/HomePage.dart';
-import 'package:appshop/views/pages/RecommendPage.dart';
-import 'package:appshop/views/widget/CategoryBar_widget/bloc/category_bar_bloc.dart';
+import 'package:appshop/app/routes/route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+//import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/route_manager.dart';
+
+import 'package:appshop/app/binding/root_binding.dart';
+//import 'package:appshop/bloc_structure/repository/shopRepository.dart';
+//import 'package:appshop/bloc_structure/repository/shopService.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "AppShop",
+      theme: ThemeData(useMaterial3: true),
+      initialBinding: RootBinding(),
+      getPages: myroutes,
+      initialRoute: '/home',
+    );
+  }
+}
+
+
+/* BLoC Structure
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -31,4 +51,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
+}*/

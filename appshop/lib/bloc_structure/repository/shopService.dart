@@ -1,5 +1,5 @@
-import 'package:appshop/repository/model/category.dart';
-import 'package:appshop/repository/model/category_bar.dart';
+import 'package:appshop/bloc_structure/repository/model/category.dart';
+import 'package:appshop/bloc_structure/repository/model/category_bar.dart';
 import 'package:flutter/material.dart';
 
 class ShopService {

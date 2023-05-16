@@ -1,4 +1,4 @@
-import 'package:appshop/views/widget/AppbarSearch_widget/CustomAppbar.dart';
+import 'package:appshop/bloc_structure/views/widget/AppbarSearch_widget/CustomAppbar.dart';
 import 'package:flutter/material.dart';
 
 class Item {

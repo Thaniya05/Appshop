@@ -1,15 +1,9 @@
-import 'package:appshop/views/widget/CategoryBar_widget/CategoryBar.dart';
-import 'package:appshop/views/widget/Hotdeal_widget/Hotdeal.dart';
-import 'package:appshop/views/widget/Recommend_widget/recommend_widget.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:appshop/bloc_structure/views/widget/AppbarSearch_widget/CustomAppbar.dart';
+import 'package:appshop/bloc_structure/views/widget/Carousel_widget/CustomCarousel.dart';
+import 'package:appshop/bloc_structure/views/widget/CategoryBar_widget/CategoryBar.dart';
+import 'package:appshop/bloc_structure/views/widget/Hotdeal_widget/Hotdeal.dart';
+import 'package:appshop/bloc_structure/views/widget/Recommend_widget/recommend_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'package:appshop/bloc/shop_bloc.dart';
-
-import 'package:appshop/views/widget/AppbarSearch_widget/CustomAppbar.dart';
-import 'package:appshop/views/widget/Carousel_widget/CustomCarousel.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

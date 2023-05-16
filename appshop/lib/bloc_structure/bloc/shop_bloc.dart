@@ -1,5 +1,5 @@
-import 'package:appshop/repository/model/category.dart';
-import 'package:appshop/repository/shopRepository.dart';
+import 'package:appshop/bloc_structure/repository/model/category.dart';
+import 'package:appshop/bloc_structure/repository/shopRepository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
