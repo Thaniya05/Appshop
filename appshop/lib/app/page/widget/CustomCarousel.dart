@@ -1,21 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import 'package:appshop/app/models/Carousel_model.dart';
+
 class CustomCarousel extends StatefulWidget {
-  final double myheight;
-  final double mywidth;
-  final List<String> myurl;
+  final List<CarouselModel> data;
 
   const CustomCarousel({
-    super.key,
-    required this.myheight,
-    required this.mywidth,
-    required this.myurl,
-  });
+    Key? key,
+    required this.data,
+  }) : super(key: key);
   @override
   State<StatefulWidget> createState() {
-    return _CustomCarousel();
+    return _CustomCarousel(data: data);
   }
 }
 
@@ -23,13 +22,16 @@ class _CustomCarousel extends State<CustomCarousel> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
 
+  final List<CarouselModel> data;
+  _CustomCarousel({required this.data});
+
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
       Center(
         child: Container(
           child: CarouselSlider(
-            items: _buildtest(context),
+            items: _buildtest(context, data),
             carouselController: _controller,
             options: CarouselOptions(
                 autoPlay: true,
@@ -50,7 +52,7 @@ class _CustomCarousel extends State<CustomCarousel> {
         width: MediaQuery.of(context).size.width * 0.9,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [0, 1, 2, 3].asMap().entries.map((entry) {
+          children: data.asMap().entries.map((entry) {
             return GestureDetector(
               onTap: () => _controller.animateToPage(entry.key),
               child: Container(
@@ -71,7 +73,7 @@ class _CustomCarousel extends State<CustomCarousel> {
     ]);
   }
 
-  List<Widget> _buildtest(BuildContext context) {
+  List<Widget> _buildtest(BuildContext context, List<CarouselModel> data) {
     List<int> mylist = [0, 1, 2, 3];
     List<Color> mycolor = [
       Colors.blue,
@@ -80,15 +82,15 @@ class _CustomCarousel extends State<CustomCarousel> {
       Colors.amber,
     ];
 
-    return mylist
+    return data
         .map(
           (e) => Container(
             //color: mycolor[e],
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
                 opacity: 0.7,
                 image: NetworkImage(
-                  "https://docs.flutter.dev/assets/images/dash/dash-fainting.gif",
+                  e.pathimg,
                 ),
                 fit: BoxFit.fill,
               ),

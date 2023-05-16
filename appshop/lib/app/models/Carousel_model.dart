@@ -1,8 +1,8 @@
 class CarouselModel {
   final String pathimg;
-  final String routepath;
-  CarouselModel(
-    this.pathimg,
-    this.routepath,
-  );
+  final String? routepath;
+  CarouselModel({
+    required this.pathimg,
+    required this.routepath,
+  });
 }

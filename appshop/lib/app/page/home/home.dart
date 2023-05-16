@@ -12,10 +12,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<HomeController>(
+    return GetBuilder<HomeController>(
       init: HomeController(),
-      initState: (_) {},
       builder: (controller) {
+        final data = controller.getdummyData();
         return Scaffold(
           body: SingleChildScrollView(
             child: Column(
@@ -23,7 +23,9 @@ class HomePage extends StatelessWidget {
                 AppbarwithSearch(),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.9,
-                  child: CustomCarousel(myheight: 0, mywidth: 0, myurl: []),
+                  child: CustomCarousel(
+                    data: data.carouselList,
+                  ),
                 ),
                 CategoryBar(),
                 RecommendList(),

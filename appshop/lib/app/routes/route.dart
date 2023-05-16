@@ -1,4 +1,4 @@
-import 'package:appshop/bloc_structure/views/pages/HomePage.dart';
+import 'package:appshop/app/page/home/home.dart';
 import 'package:get/get.dart';
 
 List<GetPage> myroutes = [
