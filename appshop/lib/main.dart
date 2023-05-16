@@ -19,16 +19,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(useMaterial3: true),
       home: RepositoryProvider(
         create: (context) => ShopRepository(service: ShopService()),
         child: BlocProvider(
           create: (context) =>
               CategoryBarBloc(shopRepository: context.read<ShopRepository>())
                 ..add(GetDummyCategory()),
-          child: RecommendPage(),
+          child: HomePage(),
         ),
       ),
     );
